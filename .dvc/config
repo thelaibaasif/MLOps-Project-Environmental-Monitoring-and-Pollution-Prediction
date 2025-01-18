@@ -1,0 +1,7 @@
+[core]
+    remote = myremote
+['remote "myremote"']
+    url = gdrive://1K0o09PFT4JigV7KG9lTk2McDkPLfvhRb
+    gdrive_use_service_account = true
+    gdrive_service_account_json_file_path = C:/Users/Laiba Asif/Downloads/credentialss.json
+    
