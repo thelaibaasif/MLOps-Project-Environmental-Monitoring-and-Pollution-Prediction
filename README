@@ -1,0 +1,92 @@
+# MLOps Project: Environmental Monitoring and Pollution Prediction
+
+## Project Overview
+This project is designed to monitor environmental data (e.g., air quality, weather, and pollution levels) and predict pollution trends using an MLOps pipeline. The pipeline integrates data collection, model training, deployment, and monitoring with tools like DVC, MLflow, Grafana, and Prometheus.
+
+### Key Features
+1. **Real-Time Data Collection**:
+   - Automated fetching of weather and air quality data using OpenWeatherMap API.
+   - Data versioning with DVC.
+
+2. **Pollution Prediction**:
+   - Time-series modeling using LSTMs.
+   - Experiment tracking with MLflow.
+
+3. **Deployment and Monitoring**:
+   - Flask-based API for model predictions.
+   - Real-time monitoring with Prometheus and Grafana.
+
+---
+
+## Folder Structure
+- **data/**: Contains versioned data managed by DVC.
+- **monitoring/**: Includes Grafana and Prometheus configurations.
+- **api/**: Flask API for serving predictions.
+- **best_model.h5**: Trained pollution prediction model.
+- **fetch_data.py**: Script to fetch real-time data from OpenWeatherMap.
+- **dockerfile**: Configuration for Dockerized deployment.
+- **requirements.txt**: Python dependencies.
+
+---
+
+## How to Run the Project
+
+### Prerequisites
+- Python 3.8+
+- Docker and Docker Compose
+- Prometheus and Grafana (optional for monitoring)
+- OpenWeatherMap API key
+
+### Steps
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/<your-username>/MLOps_Environmental_Monitoring.git
+   cd MLOps_Environmental_Monitoring
+   ```
+
+2. **Set Up the Environment**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # On Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+
+3. **Fetch Data**:
+   ```bash
+   python fetch_data.py
+   ```
+
+4. **Track Data with DVC**:
+   ```bash
+   dvc add data/
+   dvc push
+   ```
+
+5. **Run the Flask API**:
+   ```bash
+   python api/app.py
+   ```
+
+6. **Monitor Metrics**:
+   - Start Prometheus:
+     ```bash
+     docker-compose up prometheus
+     ```
+   - Start Grafana:
+     ```bash
+     docker-compose up grafana
+     ```
+
+---
+
+## Authors
+- **Laiba Asif**: Lead Developer
+
+---
+
+## References
+- [SEED Labs](https://seedsecuritylabs.org/)
+- [Prometheus](https://prometheus.io/)
+- [Grafana](https://grafana.com/)
+- [OpenWeatherMap API](https://openweathermap.org/api)
+

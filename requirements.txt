@@ -1,0 +1,5 @@
+flask
+prometheus-flask-exporter
+tensorflow
+numpy
+scikit-learn
