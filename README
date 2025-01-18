@@ -1,38 +1,38 @@
 # MLOps Project: Environmental Monitoring and Pollution Prediction
 
 ## Project Overview
-This project is designed to monitor environmental data (e.g., air quality, weather, and pollution levels) and predict pollution trends using an MLOps pipeline. The pipeline integrates data collection, model training, deployment, and monitoring with tools like DVC, MLflow, Grafana, and Prometheus.
+This project aims to monitor environmental data, such as air quality, weather, and pollution levels, while predicting pollution trends using a robust MLOps pipeline. The pipeline integrates various stages including data collection, model training, deployment, and monitoring, leveraging tools like DVC, MLflow, Grafana, and Prometheus.
 
 ### Key Features
 1. **Real-Time Data Collection**:
-   - Automated fetching of weather and air quality data using OpenWeatherMap API.
-   - Data versioning with DVC.
+   - Automated data fetching from the OpenWeatherMap API for weather and air quality information.
+   - Version control for data using DVC.
 
 2. **Pollution Prediction**:
-   - Time-series modeling using LSTMs.
-   - Experiment tracking with MLflow.
+   - Time-series modeling with LSTM neural networks for accurate forecasting.
+   - Experiment tracking and management through MLflow.
 
 3. **Deployment and Monitoring**:
-   - Flask-based API for model predictions.
-   - Real-time monitoring with Prometheus and Grafana.
+   - Flask-based API for serving predictions in real-time.
+   - Comprehensive monitoring of metrics using Prometheus and Grafana dashboards.
 
 ---
 
 ## Folder Structure
-- **data/**: Contains versioned data managed by DVC.
-- **monitoring/**: Includes Grafana and Prometheus configurations.
-- **api/**: Flask API for serving predictions.
-- **best_model.h5**: Trained pollution prediction model.
-- **fetch_data.py**: Script to fetch real-time data from OpenWeatherMap.
-- **dockerfile**: Configuration for Dockerized deployment.
-- **requirements.txt**: Python dependencies.
+- **data/**: Stores versioned data managed by DVC.
+- **monitoring/**: Contains configuration files for Grafana and Prometheus.
+- **api/**: Includes the Flask API for serving model predictions.
+- **best_model.h5**: The trained model file for pollution prediction.
+- **fetch_data.py**: Script for fetching real-time data from the OpenWeatherMap API.
+- **dockerfile**: Docker configuration file for containerized deployment.
+- **requirements.txt**: Lists Python dependencies required for the project.
 
 ---
 
 ## How to Run the Project
 
 ### Prerequisites
-- Python 3.8+
+- Python 3.8 or higher
 - Docker and Docker Compose
 - Prometheus and Grafana (optional for monitoring)
 - OpenWeatherMap API key
@@ -52,17 +52,20 @@ This project is designed to monitor environmental data (e.g., air quality, weath
    ```
 
 3. **Fetch Data**:
+   Run the script to fetch data:
    ```bash
    python fetch_data.py
    ```
 
 4. **Track Data with DVC**:
+   Use DVC to track and push data:
    ```bash
    dvc add data/
    dvc push
    ```
 
 5. **Run the Flask API**:
+   Start the API to serve predictions:
    ```bash
    python api/app.py
    ```
